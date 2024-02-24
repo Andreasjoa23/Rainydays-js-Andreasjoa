@@ -1,0 +1,58 @@
+@import url('/css/style.css');
+
+main {
+  padding: 20px;
+}
+
+details {
+  margin-bottom: 20px;
+}
+
+.gender-ul {
+  list-style-type: none;
+}
+
+.gender-ul li {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.gender-ul li:hover {
+  background-color: #f0f0f0;
+}
+
+.collectionItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product {
+  flex: 1 0 300px; 
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  list-style-type: none;
+}
+
+.product-image {
+  max-width: 100%;
+  width: 300px;
+  height: auto;
+}
+
+.linkToProduct {
+  text-decoration: none;
+  color: #333;
+}
+
+.linkToProduct:hover {
+  color: #666;
+}

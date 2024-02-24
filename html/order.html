@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Take a look at our amazing product">
+  <title>Order</title>
+  <link rel="stylesheet" href="/css/order.css">
+  <script type="module" src="/java/order.mjs"></script>
+  <script src="https://kit.fontawesome.com/71af401eab.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Rainy Days</h1>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/html/jacket.html">Jacket</a>
+      <a href="/html/order.html">Order</a>
+      <a href="/html/orderComplete.html">Order-Complete</a>
+      <a href="/html/order.html" class="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="left-container">
+        <h2>Checkout</h2>
+        <form id="checkoutForm">
+          <div class="form-group">
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="cardNumber">Credit Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="expDate">Expiration Date:</label>
+            <input type="text" id="expDate" name="expDate" placeholder="MM/YYYY" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required>
+          </div>
+        </form>
+      </div>
+      
+      <div class="right-container">
+        <div class="cart-container">
+              <h3>Cart Summary</h3>
+              <ul id="cartItems">
+              </ul>
+              <div id="totalAmount">
+              </div>
+          </div>
+      </div>
+    </div>
+  </main>
+</body>

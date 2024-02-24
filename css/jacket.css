@@ -1,0 +1,29 @@
+@import url('/css/style.css');
+/* Global Styles */
+
+
+main {
+    padding: 20px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:focus {
+    outline: none;
+}
+
+p {
+    font-size: 20px;
+}
