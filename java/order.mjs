@@ -18,8 +18,8 @@ function displayCartItems() {
         const productName = document.createElement("p");
         productName.textContent = item.title;
 
-        const productPrice = document.createElement("p"); // Create element for product price
-        productPrice.textContent = "Price: " + item.price + "kr"; // Set product price text
+        const productPrice = document.createElement("p");
+        productPrice.textContent = "Price: " + item.price + "kr"; 
 
         const quantity = document.createElement("p");
         quantity.textContent = "Quantity: " + item.quantity;
