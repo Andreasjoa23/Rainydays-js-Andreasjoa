@@ -1,7 +1,4 @@
-@import url('/css/style.css');
-/* Global Styles */
-
-
+@import url("../css/style.css");
 main {
     padding: 20px;
 }
