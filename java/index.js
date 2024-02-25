@@ -50,7 +50,7 @@ const jacketCardContent = (jacket) => {
     jacketImage.classList = "product-image";
 
     const linkToProduct = document.createElement('a');
-    linkToProduct.href = '../html/jacket.html';
+    linkToProduct.href = './html/jacket.html';
     linkToProduct.classList = 'linkToProduct';
     linkToProduct.addEventListener('click', () => {
         localStorage.setItem("jacket", JSON.stringify(jacket));

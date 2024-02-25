@@ -54,7 +54,7 @@ function displayCartItems() {
     });
 
     const totalPriceElement = document.createElement("p");
-    totalPriceElement.textContent = "Total Price: " + totalPriceAllProducts + "kr";
+    totalPriceElement.textContent = "Total Price: " + totalPriceAllProducts.toFixed(2) + "kr";
     rightContainer.appendChild(totalPriceElement);
 
     const payButton = document.createElement("button");
