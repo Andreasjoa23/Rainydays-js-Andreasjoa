@@ -2,20 +2,18 @@ import { apiUrl } from '../components/fetch.mjs';
 import loader from '../components/loading.mjs';
 import { createAddEventListenerGenderButtons } from "../components/filter.mjs";
 
-export const dataAPI = async (url) => {
-    loader.show(); 
+const dataAPI = async (url) => {
+    loader.show();
     try {
-        let response = await fetch(url)
-        console.log("Api Called.");
-        let jackets = await response.json()
+        let response = await fetch(url);
+        let jackets = await response.json();
         localStorage.setItem("jacketList", JSON.stringify(jackets.data));
-        console.log("Jackets stored in local storage named jacketList")
     } catch (error) {
         console.error("Could not fetch data" + error);
     } finally {
         loader.hide(); 
     }
-}
+};
 
 dataAPI(apiUrl);
 
@@ -29,12 +27,10 @@ const addToCart = (jacket) => {
         cartItems.push(jacket);
     }
     localStorage.setItem("cartJacket", JSON.stringify(cartItems));
-    alert('Jacket has been added to cart!');
     displayCartItems();
 };
 
 const displayCartItems = () => {
-    // Implement your logic to display cart items here
 };
 
 const jacketCardContent = (jacket) => {
@@ -90,12 +86,11 @@ export const makeJacketCard = (jacketList) => {
     main.appendChild(collectionItems);
     let row = document.getElementById('collectionItems');
     row.innerHTML = '';
-    console.log(collectionItems.innerHTML);
-    console.log(jacketList);
+    
     jacketList.forEach((jacket) => 
         jacketCardContent(jacket)
     );
-}
+};
 
 makeJacketCard(jacketList);
 createAddEventListenerGenderButtons(jacketList);

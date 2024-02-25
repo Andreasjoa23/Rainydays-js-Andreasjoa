@@ -19,7 +19,7 @@ function displayCartItems() {
         productName.textContent = item.title;
 
         const productPrice = document.createElement("p");
-        productPrice.textContent = "Price: " + item.price + "kr"; 
+        productPrice.textContent = "Price: " + item.price + "kr";
 
         const quantity = document.createElement("p");
         quantity.textContent = "Quantity: " + item.quantity;
@@ -56,6 +56,14 @@ function displayCartItems() {
     const totalPriceElement = document.createElement("p");
     totalPriceElement.textContent = "Total Price: " + totalPriceAllProducts + "kr";
     rightContainer.appendChild(totalPriceElement);
+
+    const payButton = document.createElement("button");
+    payButton.textContent = "Pay Now";
+    payButton.addEventListener("click", () => {
+        window.location.href = "/html/orderComplete.html";
+    });
+
+    rightContainer.appendChild(payButton);
 }
 
 function updateCart(cartItems) {

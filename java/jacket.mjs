@@ -17,11 +17,6 @@ const addToCart = (jacket) => {
     displayCartItems();
 };
 
-
-const displayCartItems = () => {
-
-};
-
 const jacketItem = (jacket) => {
     let main = document.querySelector('main');
 
