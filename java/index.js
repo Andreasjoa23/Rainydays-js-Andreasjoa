@@ -1,21 +1,5 @@
-import { apiUrl } from '../components/fetch.mjs';
-import loader from '../components/loading.mjs';
+import { apiUrl, dataAPI } from '../components/fetch.mjs';
 import { createAddEventListenerGenderButtons } from "../components/filter.mjs";
-
-const dataAPI = async (url) => {
-    loader.show();
-    try {
-        let response = await fetch(url);
-        let jackets = await response.json();
-        localStorage.setItem("jacketList", JSON.stringify(jackets.data));
-    } catch (error) {
-        console.error("Could not fetch data" + error);
-    } finally {
-        loader.hide(); 
-    }
-};
-
-dataAPI(apiUrl);
 
 const addToCart = (jacket) => {
     let cartItems = JSON.parse(localStorage.getItem("cartJacket")) || [];
@@ -27,10 +11,6 @@ const addToCart = (jacket) => {
         cartItems.push(jacket);
     }
     localStorage.setItem("cartJacket", JSON.stringify(cartItems));
-    displayCartItems();
-};
-
-const displayCartItems = () => {
 };
 
 const jacketCardContent = (jacket) => {
@@ -74,8 +54,6 @@ const jacketCardContent = (jacket) => {
     linkToProduct.appendChild(jacketImage);
 };
 
-const jacketList = JSON.parse(localStorage.getItem('jacketList'));
-
 export const makeJacketCard = (jacketList) => {
     let collectionItems = document.createElement('div');
     collectionItems.id = "collectionItems";
@@ -92,5 +70,17 @@ export const makeJacketCard = (jacketList) => {
     );
 };
 
-makeJacketCard(jacketList);
-createAddEventListenerGenderButtons(jacketList);
+const initializeApp = async () => {
+    let jacketList = JSON.parse(localStorage.getItem('jacketList'));
+    if (!jacketList) {
+        jacketList = await dataAPI(apiUrl);
+    }
+
+    if (jacketList) {
+        makeJacketCard(jacketList);
+        createAddEventListenerGenderButtons(jacketList);
+    } else {
+        console.error("Failed to load jackets.");
+    }
+};
+initializeApp();

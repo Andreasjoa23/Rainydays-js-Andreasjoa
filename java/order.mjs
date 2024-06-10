@@ -5,6 +5,13 @@ function displayCartItems() {
 
     rightContainer.innerHTML = "";
 
+    if (jacketItems.length === 0) {
+        const emptyMessage = document.createElement("p");
+        emptyMessage.textContent = "Your cart is empty.";
+        rightContainer.appendChild(emptyMessage);
+        return;
+    }
+
     let totalPriceAllProducts = 0;
 
     jacketItems.forEach(item => {

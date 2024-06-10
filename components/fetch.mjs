@@ -6,14 +6,13 @@ export const dataAPI = async(url) => {
     loader.show(); 
     try {
         let response = await fetch(url);
-        
         let jackets = await response.json();
         localStorage.setItem("jacketList", JSON.stringify(jackets.data));
+        return jackets.data;
     } catch (error) {
         console.error("Could not fetch data", error);
+        return null;
     } finally {
         loader.hide(); 
     }
-}
-
-dataAPI(apiUrl);
+};
