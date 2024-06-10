@@ -14,7 +14,6 @@ const addToCart = (jacket) => {
     
     localStorage.setItem("cartJacket", JSON.stringify(cartItems));
     alert('Jacket has been added to cart!');
-    displayCartItems();
 };
 
 const jacketItem = (jacket) => {
