@@ -31,7 +31,7 @@ const jacketCardContent = (jacket) => {
     jacketImage.classList = "product-image";
 
     const linkToProduct = document.createElement('a');
-    linkToProduct.href = `./html/jacket.html?id=${jacket.id}`;
+    linkToProduct.href = `./product/index.html?id=${jacket.id}`;
     linkToProduct.classList = 'linkToProduct';
 
     let h3 = document.createElement('h3');

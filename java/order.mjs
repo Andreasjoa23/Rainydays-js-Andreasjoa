@@ -67,7 +67,7 @@ function displayCartItems() {
     const payButton = document.createElement("button");
     payButton.textContent = "Pay Now";
     payButton.addEventListener("click", () => {
-        window.location.href = "../html/orderComplete.html";
+        window.location.href = "./confirmation/index.html";
     });
 
     rightContainer.appendChild(payButton);
