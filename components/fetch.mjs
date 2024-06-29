@@ -1,9 +1,9 @@
-import loader from '../components/loading.mjs';
+import { showLoading, hideLoading } from '../components/loading.mjs';
 
 export const apiUrl = "https://v2.api.noroff.dev/rainy-days";
 
-export const dataAPI = async(url) => {
-    loader.show(); 
+export const dataAPI = async (url) => {
+    showLoading();
     try {
         let response = await fetch(url);
         let jackets = await response.json();
@@ -13,6 +13,6 @@ export const dataAPI = async(url) => {
         console.error("Could not fetch data", error);
         return null;
     } finally {
-        loader.hide(); 
+        hideLoading();
     }
 };

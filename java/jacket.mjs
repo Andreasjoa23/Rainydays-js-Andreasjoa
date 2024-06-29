@@ -1,9 +1,12 @@
-const jacket = JSON.parse(localStorage.getItem('jacket'));
+import { showLoading, hideLoading } from '../components/loading.mjs';
+
+const getJacketDetails = async (id) => {
+    const jacketList = JSON.parse(localStorage.getItem('jacketList')) || [];
+    return jacketList.find(jacket => jacket.id === id);
+};
 
 const addToCart = (jacket) => {
-
     let cartItems = JSON.parse(localStorage.getItem("cartJacket")) || [];
-    
     let existingItem = cartItems.find(item => item.title === jacket.title);
     if (existingItem) {
         existingItem.quantity++;
@@ -11,14 +14,12 @@ const addToCart = (jacket) => {
         jacket.quantity = 1;
         cartItems.push(jacket);
     }
-    
     localStorage.setItem("cartJacket", JSON.stringify(cartItems));
     alert('Jacket has been added to cart!');
 };
 
 const jacketItem = (jacket) => {
     let main = document.querySelector('main');
-
     let specificJacket = document.createElement('div');
     specificJacket.classList = "specific-jacket";
 
@@ -33,7 +34,6 @@ const jacketItem = (jacket) => {
     productDetails.classList = "productDetails";
 
     let h2 = document.createElement('h2');
-    h2.classList = "";
     h2.textContent = jacket.title;
 
     let p = document.createElement('p');
@@ -48,7 +48,6 @@ const jacketItem = (jacket) => {
 
     let sizes = document.createElement('div');
     sizes.classList = "sizes";
-    
     jacket.sizes.forEach(size => {
         let sizeButton = document.createElement('button');
         sizeButton.classList = "size";
@@ -70,7 +69,28 @@ const jacketItem = (jacket) => {
     specificJacket.appendChild(productContainer);
     productContainer.append(jacketImage, productDetails);
     productDetails.append(h2, p, priceDiv, sizes, addButton);
-    return specificJacket;
 };
 
-jacketItem(jacket);
+const initializeProductPage = async () => {
+    showLoading();
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const jacketId = urlParams.get('id');
+
+        if (jacketId) {
+            const jacket = await getJacketDetails(jacketId);
+            if (jacket) {
+                jacketItem(jacket);
+            } else {
+                console.error("Jacket not found.");
+            }
+        } else {
+            console.error("No jacket ID provided.");
+        }
+    } catch (error) {
+        console.error("An error occurred while loading the product page:", error);
+    } finally {
+        hideLoading();
+    }
+};
+initializeProductPage();

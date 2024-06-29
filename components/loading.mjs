@@ -1,9 +1,10 @@
-const loader = {
-  show: function() {
-  },
-  
-  hide: function() {
-  }
+// loading.mjs
+const loader = document.getElementById('loading');
+
+export const showLoading = () => {
+    loader.classList.add('show');
 };
 
-export default loader;
+export const hideLoading = () => {
+    loader.classList.remove('show');
+};
