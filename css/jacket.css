@@ -30,7 +30,6 @@ img {
     width: 500px;
 }
 
-/* Loader styles */
 #loading {
     position: fixed;
     top: 50%;
@@ -43,7 +42,7 @@ img {
     font-size: 1.5em;
     color: #333;
     z-index: 1000;
-    display: none; /* Hide by default */
+    display: none;
 }
 
 #loading.show {

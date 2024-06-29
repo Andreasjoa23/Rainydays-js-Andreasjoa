@@ -1,4 +1,3 @@
-// loading.mjs
 const loader = document.getElementById('loading');
 
 export const showLoading = () => {
